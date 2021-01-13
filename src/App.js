@@ -1,17 +1,21 @@
 import React from 'react'
 
 import hero from './images/hero.jpg'
+import heroMobile from './images/heroMobile.png'
 import iahwehyireh from './images/iahwehyireh.jpg'
 import aurevoir from './images/aurevoir.jpg'
-
+import milano from './images/milano.jpg'
+import spotlight from './images/spotlight.jpg'
+import social01 from './images/social01.png'
+import social02 from './images/social02.png'
 
 function App() {
     return (
-        <div>
+        <>
             <Navbar/>
-            <Main images={IMAGES}/>
-        </div>
-        
+            <Main images={BESTSELLERS}/>
+            <Footer/>
+        </>
     );
 }
 
@@ -40,8 +44,10 @@ class Main extends React.Component {
     render() {
         return (
             <main className="content">
-                <Hero images={this.props.images}/>
-                <Carousel images={this.props.images}/>
+                <Hero/>
+                <Bestsellers images={this.props.images}/>
+                <Spotlight/>
+                <Social/>
             </main>
         );
     }
@@ -49,41 +55,113 @@ class Main extends React.Component {
 
 class Hero extends React.Component {
     render() {
-        let heroImgSrc;
-        for (let i = 0; i < this.props.images.length; i++) {
-            if (this.props.images[i].name === 'hero') {
-                heroImgSrc = this.props.images[i].src;
-            }
-        }
         return (
             <div className="hero">
-                <img className="hero__img" src={heroImgSrc} alt="hero-img"></img>
+                <div className="hero__content">
+                    <h1 className="hero__heading">new arrivals</h1>
+                    <a className="hero__button" href="#">shop now</a>
+                </div>
             </div>
         );
     }
 }
 
+class Bestsellers extends React.Component {
+    render() {
+        return (
+            <div className="bestsellers">
+                <Carousel images={this.props.images}/>
+                <a className="bestsellers__button" href="#"> shop bestsellers</a>
+            </div>
+        )
+    }
+}
 
 class Carousel extends React.Component {
     render() {
-        let imgSrc = []
+        let products = [];
         for (let i = 0; i < this.props.images.length; i++) {
-            if (this.props.images[i].name === 'bestseller') {
-                imgSrc.push(<img className="bestsellers__img" src={this.props.images[i].src} alt={this.props.images[i].name} key={i}/>);
-            }
+            products.push( <img className="bestsellers__img" src={this.props.images[i].src} alt={this.props.images[i].name} key={i}/>);
+            products.push(<h2 className="bestsellers__product-name">{this.props.images[i].name}</h2>);
+            products.push( <div className="bestsellers__product-price">{this.props.images[i].price}</div>);
         }
         return (
-            <div>
-                {imgSrc}
-            </div>
+            <>
+                {products}
+            </>
         );
     }
 }
 
-const IMAGES = [
-    {name: 'hero', src: hero},
-    {name: 'bestseller', src: iahwehyireh},
-    {name: 'bestseller', src: aurevoir}
+
+class Spotlight extends React.Component {
+    render() {
+        return (
+            <div className="spotlight">
+                <img className="spotlight__img" src={spotlight} alt="spotlight img"/>
+                <h2 className="spotlight__header">Coco Noir</h2>
+                <a className="spotlight__button" href="#">shop</a>
+            </div>
+        )
+    }
+}
+
+class Social extends React.Component {
+    render() {
+        return (
+            <div className="social">
+                <h2 className="social__header">follow us</h2>
+                <img className="social__img" src={social01} alt="instagram"/>
+                <img className="social__img" src={social02} alt="instagram"/>
+                <h3 className="social__logo">faith & yarn</h3>
+                <ul className="social__links">
+                    <li className="social__link">
+                        <a href="#">#faithyarn</a>
+                        <a href="#">@faithandyarn_</a>
+                    </li>
+                </ul>
+            </div>
+        )
+    }
+}
+
+class Footer extends React.Component {
+    render() {
+        return (
+            <footer class="footer">
+                <Newsletter/>
+                <ul className="footer__section">
+                    <li className="footer__section-header">company</li>
+                    <li className="footer__section-links">
+                        <a className="footer__section-link">about</a>
+                        <a className="footer__section-link">careers</a>
+                    </li>
+                </ul>
+
+                <ul className="footer__section"> 
+                    <li className="footer__section-header">help</li>
+                    <li className="footer__section-links">
+                        <a className="footer__section-link">FAQ</a>
+                    </li>
+                </ul>
+            </footer>
+        );
+    }
+}
+
+class Newsletter extends React.Component {
+    render() {
+        return (
+            <div></div>
+        );
+    }
+}
+
+
+const BESTSELLERS = [
+    {src: iahwehyireh, name: 'iahweh yireh', price: '$20'},
+    {src: aurevoir, name: 'au revoir', price: '$20'},
+    {src: milano, name: 'prada milano', price: '$50'},
 ];
 
 export default App;

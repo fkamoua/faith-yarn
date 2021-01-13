@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Prata&display=swap');
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    font-family: 'Prata', serif;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.625rem 1rem 1.25rem;
+    box-shadow: 0px 1px 5px 0px #BABABA;
+}
+
+.nav__logo {
+    padding-top: .25rem;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.nav .nav__menu {
+    font-size: 1.75rem;
+}
+
+.nav__list {
+    display: none;
+}
+
+.nav__bag {
+    display: none;
+}
+
+
+.content {
+    margin: 2rem 1rem;
+}
+
+
+/* copy nike hero section */
