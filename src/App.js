@@ -1,4 +1,7 @@
 import React from 'react'
+import {Swiper, SwiperSlide} from 'swiper/react';
+import SwiperCore from 'swiper';
+import 'swiper/swiper-bundle.css';
 
 import hero from './images/hero.jpg'
 import heroMobile from './images/heroMobile.png'
@@ -57,10 +60,19 @@ class Hero extends React.Component {
     render() {
         return (
             <div className="hero">
-                <div className="hero__content">
-                    <h1 className="hero__heading">new arrivals</h1>
-                    <a className="hero__button" href="#">shop now</a>
+                <div className="hero__img-container">
+                    <div className="hero__media-container">
+                        <img className="hero__img" src={heroMobile} alt="new arrivals"/>
+                    </div>
+                    <div className="hero__link-container">
+                        <a className="hero__button" href="#">shop now</a>
+                    </div>
                 </div>
+                <div className="hero__secondary-content">
+                    <h1 className="hero__heading">new arrivals</h1>
+                    <p className="hero_p">shop our new arrivals </p>
+                </div>
+                
             </div>
         );
     }
@@ -68,30 +80,33 @@ class Hero extends React.Component {
 
 class Bestsellers extends React.Component {
     render() {
+
+        const slides = [];
+
+        for (let i = 0; i < this.props.images.length; i++) {
+            slides.push(
+                <SwiperSlide>
+                    <img className="swiper__img" src={this.props.images[i].src} alt={this.props.images[i].name} key={i}/>
+                    <div className="swiper__product-details">
+                        <h2 className="swiper__product-name">{this.props.images[i].name}</h2>
+                        <div className="swiper__product-price">{this.props.images[i].price}</div>
+                    </div>
+                </SwiperSlide>
+            )
+        }
         return (
             <div className="bestsellers">
-                <Carousel images={this.props.images}/>
+                <div className="swiper">
+                    <Swiper id="bestsellers" images={this.props.images}> 
+                        {slides}
+                    </Swiper>
+                </div>
                 <a className="bestsellers__button" href="#"> shop bestsellers</a>
             </div>
         )
     }
 }
 
-class Carousel extends React.Component {
-    render() {
-        let products = [];
-        for (let i = 0; i < this.props.images.length; i++) {
-            products.push( <img className="bestsellers__img" src={this.props.images[i].src} alt={this.props.images[i].name} key={i}/>);
-            products.push(<h2 className="bestsellers__product-name">{this.props.images[i].name}</h2>);
-            products.push( <div className="bestsellers__product-price">{this.props.images[i].price}</div>);
-        }
-        return (
-            <>
-                {products}
-            </>
-        );
-    }
-}
 
 
 class Spotlight extends React.Component {
