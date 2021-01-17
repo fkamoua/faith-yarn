@@ -5,9 +5,9 @@ import 'swiper/swiper-bundle.css';
 
 import hero from './images/hero.jpg'
 import heroMobile from './images/heroMobile.png'
-import iahwehyireh from './images/iahwehyireh.jpg'
-import aurevoir from './images/aurevoir.jpg'
-import milano from './images/milano.jpg'
+import iahwehyireh from './images/iahwehyireh_cropped.jpg'
+import aurevoir from './images/aurevoir_cropped.jpg'
+import milano from './images/milano_cropped.jpg'
 import spotlight from './images/spotlight.jpg'
 import social01 from './images/social01.png'
 import social02 from './images/social02.png'
@@ -86,8 +86,10 @@ class Bestsellers extends React.Component {
         for (let i = 0; i < this.props.images.length; i++) {
             slides.push(
                 <SwiperSlide>
-                    <img className="swiper__img" src={this.props.images[i].src} alt={this.props.images[i].name} key={i}/>
-                    <div className="swiper__product-details">
+                    <div className="swiper__img-container">
+                        <img className="swiper__img" src={this.props.images[i].src} alt={this.props.images[i].name} key={i}/>
+                    </div>
+                     <div className="swiper__product-details">
                         <h2 className="swiper__product-name">{this.props.images[i].name}</h2>
                         <div className="swiper__product-price">{this.props.images[i].price}</div>
                     </div>
@@ -126,15 +128,22 @@ class Social extends React.Component {
         return (
             <div className="social">
                 <h2 className="social__header">follow us</h2>
-                <img className="social__img" src={social01} alt="instagram"/>
-                <img className="social__img" src={social02} alt="instagram"/>
-                <h3 className="social__logo">faith & yarn</h3>
-                <ul className="social__links">
-                    <li className="social__link">
-                        <a href="#">#faithyarn</a>
-                        <a href="#">@faithandyarn_</a>
-                    </li>
-                </ul>
+                <div className="social__img-container">
+                    <img className="social__img social__img--1" src={social01} alt="instagram"/>
+                    <div className="social__links-container social__img--2">
+                        <h3 className="social__logo">faith & yarn</h3>
+                        <img className="social__img" src={social02} alt="instagram"/>
+                        <ul className="social__links">
+                            <li className="social__link">
+                                <a href="#">#faithyarn</a>
+                            </li>
+                            <li className="social__link">
+                                <a href="#">@faithandyarn_</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
             </div>
         )
     }
@@ -143,7 +152,7 @@ class Social extends React.Component {
 class Footer extends React.Component {
     render() {
         return (
-            <footer class="footer">
+            <footer className="footer">
                 <Newsletter/>
                 <ul className="footer__section">
                     <li className="footer__section-header">company</li>
@@ -167,7 +176,10 @@ class Footer extends React.Component {
 class Newsletter extends React.Component {
     render() {
         return (
-            <div></div>
+            <form className="newsletter__form">
+                <input className="newsletter__email" placeholder="ENTER YOUR EMAIL ADDRESS" type="email"></input>
+                <input type="submit" value="Subscribe" className="newsletter__submit"></input>
+            </form>
         );
     }
 }

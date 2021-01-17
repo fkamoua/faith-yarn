@@ -16,6 +16,15 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+ul {
+    list-style: none;
+}
+
 #root {
     font-family: 'Prata', serif;
 }
@@ -94,6 +103,11 @@
 
 .bestsellers {
     margin: 1rem 0; 
+    text-align: center;
+}
+
+.swiper {
+    margin-bottom: 1.5rem;    
 }
 
 .swiper__img {
@@ -105,6 +119,7 @@
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
+    text-align: left;
 }
 
 .swiper__wrapper {
@@ -114,6 +129,73 @@
     display: flex;
 }
 
-.spotlight, .social {
-    display: none;
+
+
+.bestsellers__button {
+    font-size: 1rem;
+    letter-spacing: .0875rem;   
+    color: var(--color-dark);
+    text-decoration: none;
+    border: 1px solid var(--color-dark);
+    background-color: var(--color-light);
+    padding: .972rem 1.1rem .872rem
 }
+
+.spotlight {
+    margin: 6rem 0;
+}
+
+.spotlight__img {
+    width: 100%;
+}
+
+.spotlight__header {
+    margin-bottom: 1.5rem;
+}
+
+.spotlight__button {
+    font-size: 1rem;
+    letter-spacing: .0875rem;   
+    color: var(--color-dark);
+    text-decoration: none;
+    border: 1px solid var(--color-dark);
+    background-color: var(--color-light);
+    padding: .9rem 1.1rem .8rem
+}
+
+
+
+.social__img-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.social__img--1 {
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 3;
+}
+
+.social__img--2 {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    grid-column: 3 / span 1;
+    grid-row: 2/ span 3;
+}
+
+.social__logo {
+    position: absolute;
+    right: 1rem;
+    bottom: 8rem;
+    height: 100%;
+    font-size: 2rem;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    z-index: -1;
+}
+
+.footer {
+    margin-top: 5rem;
+}
+
