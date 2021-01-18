@@ -178,10 +178,8 @@ ul {
 
 .social__img--2 {
     position: relative;
-    display: flex;
-    flex-flow: column;
     grid-column: 3 / span 1;
-    grid-row: 2/ span 3;
+    grid-row: 2/ span 3;    
 }
 
 .social__logo {
@@ -196,6 +194,27 @@ ul {
 }
 
 .footer {
+    display: block;
     margin-top: 5rem;
+    width: auto;
+    max-width: initial;
 }
 
+.newsletter__form {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    margin: 42px;
+}
+
+.newsletter__email {
+    width: 100%;
+    border-width: 0 0 1px 0;
+    font-size: 12px;
+}
+
+
+input[type="email"] {
+    height: 42px;
+    outline: none;
+}
