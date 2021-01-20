@@ -58,56 +58,77 @@ ul {
     display: none;
 }
 
-.content {
-    margin: 1rem;
-}
-
-.hero__img-container {
+.hero, 
+.tops,
+.bottoms {
+    display: block;
+    min-height: initial;
+    min-width: initial;
     position: relative;
-    width: 100%;
+    height: auto;
+    margin-bottom: .5rem;
 }
 
-.hero__media-container {
-    position: relative; 
-    height: 500px;
-    overflow: hidden;
-}
-
-.hero__img {
-    position: absolute;
+.hero__img,
+.tops__img,
+.bottoms__img {
+    position: relative;
     bottom: 0;
     right: 0;
-    width: 100%;   
+    width: 100%;  
+    height: 100%;
 }
 
-.hero__link-container {
+.hero__content-container,
+.tops__content-container,
+.bottoms__content-container {
     position: absolute;
     text-align: center;
+    top: 50%;
     width: 100%;
-    bottom: 2.5rem;
+}
+
+.hero__heading {
+    font-size: 2rem;
+    color: var(--color-dark);   
 }
 
 .hero__button {
     font-size: 1rem;
     letter-spacing: .0875rem;   
-    color: var(--color-dark);
+    color: var(--color-light);
     text-decoration: none;
-    background-color: var(--color-light);
+    background-color: var(--color-dark);
     padding: .972rem 1.1rem .872rem
 }
 
-.hero__secondary-content {
-    padding: 1rem 0 0;
+.hero__link-container {
+    padding-top: 2rem;
     text-align: center;
+    width: 100%;
+}
+
+.hero__link, 
+.swiper__link, 
+.tops__link,
+.bottoms__link {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    min-width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .bestsellers {
-    margin: 1rem 0; 
+    margin: 3rem 0; 
     text-align: center;
 }
 
 .swiper {
-    margin-bottom: 1.5rem;    
+    margin: 0 1rem 1.5rem;    
 }
 
 .swiper__img {
@@ -129,7 +150,13 @@ ul {
     display: flex;
 }
 
+.swiper__product-name {
+    font-size: 1rem;
+}
 
+.swiper__product-price {
+    font-size: .75rem;
+}
 
 .bestsellers__button {
     font-size: 1rem;
@@ -141,56 +168,36 @@ ul {
     padding: .972rem 1.1rem .872rem
 }
 
-.spotlight {
-    margin: 6rem 0;
+.clothes {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
-.spotlight__img {
+.tops,
+.bottoms {
     width: 100%;
 }
 
-.spotlight__header {
-    margin-bottom: 1.5rem;
+.tops__header, 
+.bottoms__header {
+    color: var(--color-light);
 }
-
-.spotlight__button {
-    font-size: 1rem;
-    letter-spacing: .0875rem;   
-    color: var(--color-dark);
-    text-decoration: none;
-    border: 1px solid var(--color-dark);
-    background-color: var(--color-light);
-    padding: .9rem 1.1rem .8rem
-}
-
-
 
 .social__img-container {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 2fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .social__img--1 {
     grid-column: 2 / span 2;
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 2;
 }
 
 .social__img--2 {
-    position: relative;
     grid-column: 3 / span 1;
-    grid-row: 2/ span 3;    
-}
-
-.social__logo {
-    position: absolute;
-    right: 1rem;
-    bottom: 8rem;
-    height: 100%;
-    font-size: 2rem;
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
-    z-index: -1;
+    grid-row: 2 / span 2; 
 }
 
 .footer {
@@ -217,4 +224,71 @@ ul {
 input[type="email"] {
     height: 42px;
     outline: none;
+} 
+
+ .footer {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    
+    .clothes {
+        flex-flow: row;
+    }
+    
+    .bottoms {
+        margin-left: 1rem;
+    }
+}
+
+
+
+@media (min-width: 1100px) {
+
+    .nav {
+        padding: 1.25rem 1rem 1rem;
+    }
+
+    .nav__logo {
+        font-size: 1.5rem;
+    }
+
+    .nav__list {
+        display: flex;
+    }
+
+    .nav__link {
+        padding-right: 2rem;
+    }
+
+    .nav__bag {
+        display: block;
+        margin-left: 1rem;
+    }
+
+    .nav__menu {
+        display: none;
+    }
+
+    .hero__img {
+        content: url('./images/hero.jpg');
+    }
+
+    .hero__heading {
+        font-size: 4rem;
+    }
+
+
+    .swiper-slide {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    
+    .swiper__img {
+        max-width: 500px;
+        height: auto;
+    }
+    
+   
 }
