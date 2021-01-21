@@ -134,7 +134,6 @@ class Tops extends React.Component {
     }
 }
 
-
 class Bottoms extends React.Component {
     render() {
         return (
@@ -148,7 +147,6 @@ class Bottoms extends React.Component {
         );
     }
 }
-
 
 class Social extends React.Component {
     render() {
@@ -179,20 +177,34 @@ class Footer extends React.Component {
         return (
             <footer className="footer">
                 <Newsletter/>
-                <ul className="footer__section">
-                    <li className="footer__section-header">company</li>
-                    <li className="footer__section-links">
-                        <a className="footer__section-link">about</a>
-                        <a className="footer__section-link">careers</a>
-                    </li>
-                </ul>
-
-                <ul className="footer__section"> 
-                    <li className="footer__section-header">help</li>
-                    <li className="footer__section-links">
-                        <a className="footer__section-link">FAQ</a>
-                    </li>
-                </ul>
+                <div className="footer__flex-container">
+                    <div className="footer__block">
+                        <ul className="footer__section">
+                            <li className="footer__section-header">company</li>
+                            <li className="footer__section-links">
+                                <a className="footer__section-link">about</a>
+                                <a className="footer__section-link">careers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="footer__block">
+                        <ul className="footer__section"> 
+                            <li className="footer__section-header">help</li>
+                            <li className="footer__section-links">
+                                <a className="footer__section-link">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="footer__block">
+                        <ul className="footer__section"> 
+                            <li className="footer__section-header">store</li>
+                            <li className="footer__section-links">
+                                <a className="footer__section-link">find a store</a>
+                                <a className="footer__section-link">shop online</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </footer>
         );
     }
@@ -208,7 +220,6 @@ class Newsletter extends React.Component {
         );
     }
 }
-
 
 const BESTSELLERS = [
     {src: iahwehyireh, name: 'iahweh yireh', price: '$20'},
