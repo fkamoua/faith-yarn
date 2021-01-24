@@ -29,19 +29,71 @@ class Navbar extends React.Component {
     render() {
         return (
             <nav className="nav">
-                <h2 className="nav__logo">faith & yarn</h2>
                 <span className="nav__menu material-icons">
                     menu
                 </span>
+                <h2 className="nav__logo">faith & yarn</h2>
                 <ul className="nav__list">
                     <li className="nav__link">new arrivals</li>
                     <li className="nav__link">tops</li>
                     <li className="nav__link">bottoms</li>
                 </ul>
-                <a className="nav__bag material-icons" href="#bag">
-                    shopping_bag
-                </a>
+                <Bag/>
             </nav>
+        );
+    }
+}
+
+
+class Bag extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            display: false,
+            bagContent: []
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.setState(state => ({
+            display: !state.display
+        }));
+    }
+
+    render() {
+        let isToggleOn = this.state.display ? 'show' : 'hide';
+        let isToggleOpposite = this.state.display? 'hide' : 'show';
+        let displayEmptyMsg = this.state.bagContent.length ? 'hide' : 'show';
+
+        let bagTransition = this.state.display ? 'bag__content--transition' : '';
+        
+        return (
+            <>
+                <a className={`nav__bag ${isToggleOpposite}`} href="#bag" onClick={this.handleClick}>
+                    <div className="material-icons">
+                        shopping_bag
+                    </div>
+                </a>
+
+                <div className="bag" className={isToggleOn}>
+                    <div className="bag__container">
+                        <div className={`bag__content ${bagTransition}`}>
+                            <div className="bag__header">
+                                <a className="bag__close material-icons" onClick={this.handleClick} href="#">
+                                    close
+                                </a>
+                                <div className="bag__logo">faith & yarn</div>
+                            </div>
+                            <div className={`bag__empty ${displayEmptyMsg}`}>
+                                <p className="bag__empty-msg">
+                                    your cart is empty
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
         );
     }
 }

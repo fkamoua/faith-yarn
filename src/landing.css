@@ -55,7 +55,69 @@ ul {
 }
 
 .nav__bag {
+    display: block;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
     display: none;
+}
+
+.bag__content {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    padding-top: 25px;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    font-family: 'Lato', sans-serif;
+    border: 1px solid #b1b1b1;
+    border-top: 0;
+    border-right: 0;
+    width: 100%;
+    max-width: 320px;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+.bag__content--transition {
+    transform: translateX(0%);
+    transition: transform .3s ease 0s;
+}
+
+.bag__header {
+    font-family: 'Prata', serif;
+}
+
+.bag__close {
+    position: relative;
+    margin-top: 0;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #b1b1b1;
+    transition: color .1s linear;
+}
+
+.bag__logo {
+    width: fit-content;
+    margin: 0 auto 10px;
+    font-size: 1.1rem;
+}
+
+.bag__empty-msg {
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    text-align: center;
+    padding: 40px 0 25px 0;
+    color: var(--color-dark);
 }
 
 .hero, 
@@ -339,10 +401,10 @@ input[type="email"] {
     }
 
     .nav__bag {
-        display: block;
         margin-left: 2rem;
     }
 
+    
     .nav__menu {
         display: none;
     }
